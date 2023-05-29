@@ -142,7 +142,7 @@ def calculate_features(image: PIL.Image, kernel_size, sigma) -> numpy.ndarray:
             order=2,
             mode="constant",
             anti_aliasing=False,
-            multichannel=False,
+            channel_axis=-1
         )
     downscaled_brisque = Brisque(downscaled_image, kernel_size=kernel_size, sigma=sigma)
     features = numpy.concatenate([brisque.features, downscaled_brisque.features])
